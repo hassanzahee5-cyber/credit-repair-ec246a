@@ -1,0 +1,65 @@
+@import 'tailwindcss' source('../');
+
+@theme {
+  --color-ink: #0d2a22;
+  --color-ink-soft: #1d4337;
+  --color-cream: #f6f1e7;
+  --color-paper: #fbf8f2;
+  --color-lime: #c6ef6a;
+  --color-clay: #d9714a;
+  --color-muted: #5b6b64;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-sans: 'Inter Tight', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-variation-settings:
+    'SOFT' 50,
+    'opsz' 96;
+}
+
+.form-label {
+  @apply block text-sm font-semibold mb-2;
+}
+
+.form-input {
+  @apply w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-ink placeholder:text-muted/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink;
+}
+
+.action {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 font-semibold text-cream transition hover:bg-ink-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:cursor-wait;
+}
+
+.action-lime {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-lime px-6 py-3.5 font-semibold text-ink transition hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime;
+}
+
+.action-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-current px-6 py-3.5 font-semibold transition hover:bg-ink/5 focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.eyebrow {
+  @apply text-xs font-bold uppercase tracking-[0.18em];
+}
+
+@keyframes rise {
+  from {
+    stroke-dashoffset: var(--dash-from);
+  }
+}
+
+.gauge-arc {
+  animation: rise 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
